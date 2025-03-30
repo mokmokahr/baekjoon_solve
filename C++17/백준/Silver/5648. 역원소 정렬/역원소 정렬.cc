@@ -10,29 +10,18 @@ using namespace std;
 int main(void) {
 	int N;
 	cin >> N;
-
-	vector<vector<long long>> v(N);
+    
 	vector <long long> v2;
 
 	for (int i = 0; i < N; i++) {
 		long long n;
 		cin >> n;
+		long long res = 0;
 		while(n){
-			v[i].push_back(n % 10);
-			n = n / 10;
+			res = res*10 + n % 10;
+			n /= 10;
 		}
-	}
-	for (int i = 0; i < N; i++) {
-		long long n = 0;
-		int s = v[i].size();
-		for (int j = 0; j < s; j++) {
-			for (int k = 0; k < s-j-1; k++) {
-				v[i][j] *= 10;
-			}
-			n += v[i][j];
-		}
-		
-		v2.push_back(n);
+		v2.push_back(res);
 	}
 
 	sort(v2.begin(),v2.end());
