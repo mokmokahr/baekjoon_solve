@@ -22,25 +22,23 @@ int main(void) {
 	}
 	for (int i = 0; i < R; i++) {
 		int len = 0;
-		string tmpStr="";
+		string tmpStr = "";
 		for (int j = 0; j < C; j++) {
-			if (v[i][j] != '#') {
-				tmpStr += v[i][j];
-				len++;
-				if (j == C - 1 && len >= 2) {
+			if (v[i][j] == '#') {
+				if (len > 1) {
 					w.push_back(tmpStr);
-					tmpStr = "";
-					len = 0;
 				}
-			}
-			else if (len < 2) {	
 				len = 0;
 				tmpStr = "";
 			}
 			else {
-				w.push_back(tmpStr);
-				tmpStr = "";
-				len = 0;
+				tmpStr += v[i][j];
+				len++;
+				if (j == C - 1 && len>1) {
+					w.push_back(tmpStr);
+					len = 0;
+					tmpStr = "";
+				}
 			}
 
 		}
@@ -49,23 +47,22 @@ int main(void) {
 		int len = 0;
 		string tmpStr="";
 		for (int j = 0; j < R; j++) {
-			if (v[j][i] != '#') {
-				tmpStr += v[j][i];
-				len++;
-				if (j == R - 1 && len >= 2) {
+			if (v[j][i] == '#') {
+
+				if (len > 1) {
 					w.push_back(tmpStr);
-					tmpStr = "";
-					len = 0;
 				}
-			}
-			else if (len < 2) {
 				len = 0;
 				tmpStr = "";
 			}
 			else {
-				w.push_back(tmpStr);
-				len = 0;
-				tmpStr = "";
+				tmpStr += v[j][i];
+				len++;
+				if (j == R - 1 && len>1) {
+					w.push_back(tmpStr);
+					len = 0;
+					tmpStr = "";
+				}
 			}
 
 		}
