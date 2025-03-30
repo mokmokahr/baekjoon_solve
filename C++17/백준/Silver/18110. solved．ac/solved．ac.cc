@@ -25,7 +25,7 @@ int main(void) {
 	for (int i = average; i < n - average; i++) {
 		res += v[i];
 	}
-	if(n) cout << static_cast<int>(round(res / (n - (average * 2))));
+	if(n) cout << round(res / (n - (average * 2)));
 	else {
 		cout << 0;
 	}
