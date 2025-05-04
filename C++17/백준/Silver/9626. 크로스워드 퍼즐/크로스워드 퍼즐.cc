@@ -13,30 +13,21 @@ int main() {
 	}
 	for (int i = 0; i < U + M + D; i++) {
 		int cnt = i % 2;
-		if (i < U) {
-			for (int j = 0; j < L + N + R; j++) {
+		for (int j = 0; j < L + N + R; j++) {
+			if (i < U || i >= U + M) {
 				if (cnt % 2 == 0)cout << "#";
 				else cout << ".";
-				cnt++;
 			}
-		}else if (i >= U+M) {
-			for (int j = 0; j < L + N + R; j++) {
-				if (cnt % 2 == 0)cout << "#";
-				else cout << ".";
-				cnt++;
-			}
-		}
-		else {
-			for (int j = 0; j < L + N + R; j++) {
+			else {
 				if (j < L || j >= N + L) {
 					if (cnt % 2 == 0)cout << "#";
 					else cout << ".";
 				}
 				else {
-					cout << arr[i-U][j - L];
+					cout << arr[i - U][j - L];
 				}
-				cnt++;
 			}
+			cnt++;
 		}
 		cout << "\n";
 	}
