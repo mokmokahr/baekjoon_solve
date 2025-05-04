@@ -6,10 +6,12 @@ int main() {
 	int circulation;
 	scanf("%d-%d-%d", &year, &month, &date);
 	scanf("%d", &circulation);
-	int date_ = (date + circulation) % 30;
-	int month_ = ((date + circulation-1) / 30 + month) % 12;
-	int year_ = year + ((date + circulation-1) / 30 + month-1) / 12;
-	if (!date_) date_ = 30;
-	if (!month_) month_ = 12;
-	printf("%d-%02d-%02d", year_, month_, date_);
+	int sum = year * 360 + (month-1) * 30 + date-1;
+	sum += circulation;
+	year = sum / 360;
+	sum = sum % 360;
+	month = sum / 30+1;
+	sum = sum % 30;
+	date = sum+1;
+	printf("%d-%02d-%02d",year,month,date);
 }
