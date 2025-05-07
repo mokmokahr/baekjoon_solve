@@ -1,2 +1,3 @@
-# baekjoon_solve
-This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+# 1일1백준
+(jbmok66)
+플레티넘5찍을때까지 1일1백준하기
